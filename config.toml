@@ -1,4 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "https://albertoandanna.com/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Alberto and Anna wedding"
 theme = "ananke"
+defaultContentLanguage = "en"
+enableEmoji = true
