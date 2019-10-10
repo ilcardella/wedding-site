@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  hugo-builder:
+    image: jguyomard/hugo-builder
+    container_name: wedding-site-builder
+    volumes:
+      - ./:/src
+    user: hugo
+    command: hugo
+  nginx-server:
+    restart: always
+    image: nginx:alpine
+    container_name: wedding-site-server
+    volumes:
+      - ./public:/usr/share/nginx/html
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+     - hugo-builder
