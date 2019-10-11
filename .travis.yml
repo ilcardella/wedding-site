@@ -6,3 +6,24 @@ services:
 script:
   - docker network create nginx-proxy
   - docker-compose up --exit-code-from hugo-builder hugo-builder
+
+before_deploy:
+  - openssl aes-256-cbc -K $encrypted_fa0b121693fc_key -iv $encrypted_fa0b121693fc_iv
+    -in deploy_rsa.enc -out deploy_rsa -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 deploy_rsa
+  - ssh-add deploy_rsa
+  - echo -e "Host ${DEPLOY_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+deploy:
+  provider: script
+  skip-cleanup: true
+  script: rsync -r --quiet --delete-after ${TRAVIS_BUILD_DIR}/public/* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIRECTORY}
+  on:
+    branch: master
+
+env:
+  global:
+    - secure: I9Fe4/cWDJ40CxQSeH6WsdThzZbiuI4I4jp/dCuHsZGJG9Mg60b9qVBnAbbhMC83RenqGnw1XxPdyteaFcjaihVYtWPramhC+wZQKmdoD2x3PJP2FZTTPJ7KkTEQhOYbBtKLWRgBzYjEIUj3mY9tD7L+BDFamfTM6vPexaVPizv9eERY7nz/aXWKlDUTamVfD8sPFytpegTLD8PEovs0fBJ9pwcVBfR1+zYL9m2Kj1S96vdRvYhzJzS3qG/2UETr8tbbti1wbbCSrWCoYezuWJ+bGJd/foqSAbkjXY82sI89pQC2TAQOwHeNX+CDPlF7gHOaus+ia0iU25+fjOrN0oE5kuQiz1Zbao76AMyjEOgWFGxatNo0GOq4wGlhsfXNFzOVJXgwM/on56GJf8enP63kkTYJilK2QtYWcmBGvUENdPHzw44RZXJ67odAOrzV5PZzcLyY7jFl5o4rLb2kj3Jvotj8wZnln9mGLxu8zyGbZtDxW30w/yC2K6HyHcQpgLmwLrsR6fbdsCZNHCce87cLAb8WV7FuY7LCiYz+m+PMxnE/fNSlsrJCzKaCi+2ton63ucWsLUd2xAtjVXRgE6KxkAwov/RZtNRQJjFh7pwCj/K2O0axwcq4mlgxFD/T3RQqolsNt4WS7llTBrJ+uZqBdI3AA8bDCOZ44YQ4uQM=
+    - secure: AHfkTUMJMuzb+upAyYrCklPyrXexXLA7Vl9xO/C6F4feLd4KmtyzOj3tneyZzRJlXlao7n7URNeSDBznErk1wWuotBlIJN4XFi9ZSHChkt6xP6wPgeCoRc0X36/CUfCgtcI97fKo4ljWnSc6p7eO+03MQMGx/NTW/lj9/LTw/CmkponqcNIXd8L9D4PGFVcmWHUj46JW/AngPULrmljRIEujVI397vIJ8CoGFGUUXipxQIbgqePfDyx3YWdJli6IwR3Z15EDLNUVzRySRyw3J2oNomJ6OagpJ+2kqsXxUfJDNtIv5xKObwxhysdSFr9rtSS8ukOMtH/sPwDeoRklO+SMvvF+L9TFPnr1leNroSKQm/wvFFbLaPpMpw6PlD3kuHdnOmNAShM6/R1z+jt4S0flBo2bd6WqMMZafBLyCp16raVZr7YcabEbtDS/gvtwHB5160+XGpk4+n4zVmsjN7hxlB8wAFVGcufIGWAJLK//s109kcORdtD3zjFfYMIxQofFN1+iCXjmN98SPajGscLyd5yOXc8szBO9zcphe0F/BnpvSgEuuMrdtPTLJntWjdKZ8KrQVVpZcE0AkmzVgrU5TyLoQ/DRo64SDnj/fPzzdSS1jjJtJXuflPHZHTir+um7yq3c9k23Dzvja5NhpKUeG30bwBtSAYg2o3OXMtQ=
+    - secure: joV+pOswgeCfKSsDCVOgNAaqToWClXxkiFvKlFK+d8nGY/CmunqFOxsQ8fhrcF1dDtu338y4uhX487lr5/x1HtnVeUOpNqHsGuX0Sj9IeILrReq5hBPGTmhJXcF9Ghh/XLv84IOIOLgh1YxbiTLdG29D5Lb5+783IuNjXcrx1vIy/x3K4u6OkgKVu5H2i6a8FIBHzExG05j/XsHAdWKm80IEIirL/17a+k5DhjwfYz7KEBF3fxmqauxGzF2nnASe3bi4SMl6ZY5WiSBsPapssrf4jnd7hAE4yMpmoKuYFrTPOhu4oA570AonTnZbXGg/AwFOtPtCjGKmXcA9Vqp+g8dmhz5VkWaOAgza19tTwNprvjocexV+MTOWY7JKk8zQ82MPNxFzuqrEBX4D4JmOBUSYDFYMTtHx9MnW42fJOHcAY2MxHcRA11EhMa/jHWpw7bOFW069lutzbYjSak9xVDtFF1mUVCiqf2VSHSDi9jWVO66+Gw79zNcudGnDND2fHdj9ZwlIBN2+59ja27m3mY/mu/DfzTxQrdW+8TCnnFMNOB0zaqYulLYTJp2upag0gNMmzkclGxs9ws2gXe60HAuOJdxKBSo+cxgrpJM3D3LulFJryAZXLLhrTGjeJ7iqfacqHkPvnf/5goUMqnshGoDdsJrzJt9HCKOHNm5n73w=
