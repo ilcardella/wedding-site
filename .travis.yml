@@ -12,16 +12,13 @@ script:
 - docker network create nginx-proxy
 - docker-compose up --exit-code-from hugo-builder hugo-builder
 
-addons:
-  ssh_known_hosts: ${DEPLOY_HOST}
-
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_fa0b121693fc_key -iv $encrypted_fa0b121693fc_iv
   -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
-#- echo -e "Host ${DEPLOY_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "Host ${DEPLOY_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 deploy:
   provider: script
