@@ -3,4 +3,5 @@ services:
   - docker
 
 script:
+  - docker network create nginx-proxy
   - docker-compose up hugo-builder
