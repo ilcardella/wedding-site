@@ -5,7 +5,6 @@ services:
     container_name: wedding-site-builder
     volumes:
       - ./:/src
-    user: hugo
     command: hugo
   nginx-server:
     restart: always
