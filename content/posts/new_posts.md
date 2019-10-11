@@ -1,9 +1,9 @@
 ---
-title: "New_posts"
+title: "New_post"
 date: 2019-10-10T18:49:11Z
 draft: false
 ---
 
 # New Post
 
-This is a new post
+This is a mock post
