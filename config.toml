@@ -1,6 +1,107 @@
-baseURL = "https://albertoandanna.com/"
+# Site settings
+baseurl = "https://www.albertoandanna.com"
 languageCode = "en-us"
 title = "Alberto&Anna's wedding"
-theme = "ananke"
-defaultContentLanguage = "en"
-enableEmoji = true
+theme = "hugo-highlights-theme"
+
+# Enter your tracking code to enable Google analytics
+googleAnalytics = ""
+
+[params]
+
+  googleMapsAPIKey = "AIzaSyBnaL3PN5R2UYBYTMzFWHQPE3vugQkgAY0"
+
+  # You can use Markdown for urls [text](//domain.tld/source)
+  #
+  # All icons using Fontawesom's icon font. Look at fortawesome.github.io/Font-Awesome/icons/
+  # for more icons.
+
+  # To provide more meta data for search engings feel free to add a few informations.
+  # This lines will be inserted as meta tags.
+  name = "Alberto and Anna"
+  description = "Alberto and Anna's wedding website"
+
+  # For a static site it's not possible to provide a contact form. The contact form uses
+  # www.formspree.io as a proxy. The form makes a Post request to their servers to send an email
+  # Visitors can send up to a 1000 emails each month
+  #
+  # How to setup formspree
+  #
+  # - set your email address under 'email' below
+  # - upload the generated site to your server
+  # - send a dummy email to yourself to confirm your account
+  # - click the confirmation link in the email from www.formspree.io
+  # - That's all. Enjoy mailing!
+  email = "your@mail.com"
+
+  # If this param is set to true, every section gets an own background image (located at static/images)
+  # to change the image you could use the param picture on every section.
+  # If it's disabled you could change the background to overwrite the bg.jpg and overlay.png to set the background.
+  backgroundpersection = false
+
+  # hero Section
+  [params.hero]
+    type = "hero"
+    title = "Alberto&Anna's wedding"
+    description = "TBD @ TBD"
+    buttontext = "info"
+
+  # about section
+  [[params.block]]
+    id = "about_us"
+    type = "text"
+    title = "About us"
+    description = "A few lines about us"
+    buttontext = "next"
+    #picture = "dancing.jpg"
+
+  # ceremony section
+  [[params.block]]
+    id = "ceremony"
+    type = "text-location"
+    title = "Ceremony"
+    description = "A few lines about the ceremony and where it is"
+    location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+    buttontext = "next"
+    #picture = "dancing.jpg"
+
+  # reception section
+  [[params.block]]
+    id = "reception"
+    type = "text-location"
+    title = "Reception"
+    description = "A few lines about the reception and where it is"
+    location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+    buttontext = "next"
+    #picture = "dancing.jpg"
+
+  # contact form
+  [[params.block]]
+    id = "contact"
+    type = "contact"
+    title = "Get in Touch"
+    description = "If you have questions just drop us an email"
+    #picture = "dancing.jpg"
+
+    [params.block.form]
+      name = "Name"
+      email = "Your Email"
+      message = "Your Message"
+      buttontext = "send message"
+
+  # footer section
+  # this section includes last block and social icons
+
+  [params.footer]
+    enable = true
+
+    # social icons
+    [params.footer.social_list]
+      enable = true
+
+    # copyright
+
+    [[params.footer.copyright.notice]]
+      text = "© Alberto and Anna - 2020"
+
+
