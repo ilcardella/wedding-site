@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://www.albertoandanna.com"
+baseurl = "https://www.albertoandanna.com/"
 languageCode = "en-us"
 title = "Alberto&Anna's wedding"
 theme = "hugo-highlights-theme"
