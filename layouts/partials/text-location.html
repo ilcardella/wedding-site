@@ -1,0 +1,23 @@
+{{ print "<!-- " .block.id " -->" | safeHTML }}
+<section id="{{.block.id}}" class="main special">
+  <div class="container">
+    {{ if eq .params.backgroundpersection true }}
+      <span class="image fit primary"><img src="images/{{ with .block.picture }}{{ . }}{{ end }}" alt="" /></span>
+    {{ end }}
+    <div class="content">
+      <header class="major">
+        <h2>{{ with .block.title }}{{ . | markdownify }}{{ end }}</h2>
+      </header>
+      <p>{{ with .block.description }}{{ . | markdownify }}{{ end }}</p>
+      <iframe src='https://www.google.com/maps/embed/v1/place?key={{ .params.googlemapsapikey }}&q={{ .block.location }}'
+        frameborder="0"
+        scrolling='no'
+        width='100%'
+        height='300px'>
+	    </iframe>
+    </div>
+    {{ if .next }}
+      <a href="#{{.next.id}}" class="goto-next scrolly">{{ with .block.buttontext }}{{ . | markdownify }}{{ end }}</a>
+    {{ end }}
+  </div>
+</section>

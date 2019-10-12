@@ -9,6 +9,8 @@ googleAnalytics = ""
 
 [params]
 
+  googleMapsAPIKey = "AIzaSyBnaL3PN5R2UYBYTMzFWHQPE3vugQkgAY0"
+
   # You can use Markdown for urls [text](//domain.tld/source)
   #
   # All icons using Fontawesom's icon font. Look at fortawesome.github.io/Font-Awesome/icons/
@@ -35,14 +37,14 @@ googleAnalytics = ""
   # If this param is set to true, every section gets an own background image (located at static/images)
   # to change the image you could use the param picture on every section.
   # If it's disabled you could change the background to overwrite the bg.jpg and overlay.png to set the background.
-  backgroundpersection = true
+  backgroundpersection = false
 
   # hero Section
   [params.hero]
     type = "hero"
     title = "Alberto&Anna's wedding"
-    description = "10/10/1990 @ Tortona (AL), Italy"
-    buttontext = "begin"
+    description = "TBD @ TBD"
+    buttontext = "info"
 
   # about section
   [[params.block]]
@@ -51,37 +53,27 @@ googleAnalytics = ""
     title = "About us"
     description = "A few lines about us"
     buttontext = "next"
-    picture = "pic01.jpg"
+    #picture = "dancing.jpg"
 
   # ceremony section
   [[params.block]]
     id = "ceremony"
-    type = "text"
+    type = "text-location"
     title = "Ceremony"
     description = "A few lines about the ceremony and where it is"
+    location = "Tortona Italy"
     buttontext = "next"
-    # the picture is stored at static/images/
-    picture = "pic01.jpg"
+    #picture = "dancing.jpg"
 
   # reception section
-    [[params.block]]
-      id = "reception"
-      type = "text"
-      title = "Reception"
-      description = "A few lines about the reception and where it is"
-      buttontext = "next"
-      # the picture is stored at static/images/
-      picture = "pic01.jpg"
-
-#  # custom section
-#  [[params.block]]
-#    id = "important"
-#    # to make custom section copy <theme>/layouts/partials/text.html to /layouts/partials/custom.html and edit it according to your needs.
-#    type = "custom"
-#    title = "Don't forget"
-#    description = "Curabitur massa ante, semper at massa et, semper pellentesque velit. Duis tempor est nisi, a gravida risus malesuada eget. Nunc rutrum arcu laoreet mauris sodales vehicula. Nunc iaculis felis ac dui egestas, vel ullamcorper tellus bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia sem porttitor, fringilla metus at, convallis quam. Integer convallis a justo non pellentesque."
-#    # the picture is stored at static/images/
-#    picture = "pic04.jpg"
+  [[params.block]]
+    id = "reception"
+    type = "text-location"
+    title = "Reception"
+    description = "A few lines about the reception and where it is"
+    location = "Tortona Italy"
+    buttontext = "next"
+    #picture = "dancing.jpg"
 
   # contact form
   [[params.block]]
@@ -89,7 +81,7 @@ googleAnalytics = ""
     type = "contact"
     title = "Get in Touch"
     description = "If you have questions just drop us an email"
-    picture = "pic05.jpg"
+    #picture = "dancing.jpg"
 
     [params.block.form]
       name = "Name"
