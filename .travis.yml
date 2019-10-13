@@ -23,9 +23,16 @@ before_deploy:
 deploy:
   provider: script
   skip-cleanup: true
-  script: deploy.sh
+  script: deploy.sh production
   on:
     branch: master
+deploy:
+  provider: script
+  skip-cleanup: true
+  script: deploy.sh staging
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH -ne ^(master)$
 env:
   global:
   - secure: BMD4rJXktCsvP6tIxhcpU9jHBcOy9vsJkWGrkyEeAgP2z3ee+k4MaiGpaCTDhdVhpYbK3btu7LG5+S06onZXRGBd8vgJpESC1bDFCJz2KGsnY31Y4g5wzq8fXFhpWQEKjTvIkChrmh7Eh/0WVFCI9LgVeq7XqFeCUvYXl5xNUUhiNyc7zQEAw+hJE2amZMYtiltb6nTBhX5dwRTI0zsPQqIEuq+Rox6/FhYB09h0C7Nspg8YU8Q0wVPI6Q37xeJqnrnGsVEYn/YLkr9xMquhC/VhOnEqLsuTcAdJXMjBQ2qxJBQGDT7j2zR2gnPuogNGvXPIwSZ4A+EHuPXKi8SrQThiXQFjgoPJ0c9xxSy9345LvFEXAXOW2gIIkdFbZQ6r7+JhlArQYni5mcl870AgvRT/vDAcDC1JIbrvfc3Q1dZi6iuJYWt6Eto4t8ELIJouoDncOmnFT76tqEkXL7FEtnKSHr6ClPMVArGLyP5U5MlxQv8UCfJBelgdXI7ZPhoo7CbuOUiMNQz1kSIKaOjh4vGNS3iR/DdxH4f3aDDm3nXa2Ezws/W9MHebINVptcZF6AaCCMrqpB/4g++xe4UjBMp/F1+EIJTf18ITswaORiOMEPeBIROMGpMbS/AFgw8vUgqI8qgn97329jntbWTQNq7YBOnGQOYBEUJaBp5Y9qk=
