@@ -19,12 +19,12 @@ rsync --quiet ${TRAVIS_BUILD_DIR}/.env ${DEPLOY_SSH_PATH}
 
 if [[ $1 == "production" ]]; then
 # Restart the server container
-ssh ${DEPLOY_USER}@${DEPLOY_HOST} <<EOF
+ssh ${DEPLOY_USER}@${DEPLOY_HOST} /bin/bash <<EOF
 cd ${DEPLOY_DIRECTORY}
 docker-compose down
 EOF
 
-ssh ${DEPLOY_USER}@${DEPLOY_HOST} <<EOF
+ssh ${DEPLOY_USER}@${DEPLOY_HOST} /bin/bash <<EOF
 cd ${DEPLOY_DIRECTORY}
 docker-compose up -d nginx-server
 EOF
