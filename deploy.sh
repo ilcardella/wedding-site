@@ -4,7 +4,7 @@
 set -eu -o pipefail
 
 # For staging builds deploy in /tmp
-if [[ $1 == 'staging' ]]; then
+if [[ $1 == "staging" ]]; then
     DEPLOY_DIRECTORY="/tmp"
 fi
 
@@ -17,7 +17,7 @@ rsync --quite --delete-after ${TRAVIS_BUILD_DIR}/docker-compose.yml ${DEPLOY_SSH
 # Deploy the .env file created during the CI build
 rsync --quite --delete-after ${TRAVIS_BUILD_DIR}/.env ${DEPLOY_SSH_PATH}
 
-if [[ $1 == 'production' ]]; then
+if [[ $1 == "production" ]]; then
 # Restart the server container
 ssh ${DEPLOY_USER}@${DEPLOY_HOST} <<EOF
 cd ${DEPLOY_DIRECTORY}
