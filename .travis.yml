@@ -23,13 +23,13 @@ before_deploy:
 deploy:
   provider: script
   skip-cleanup: true
-  script: deploy.sh production
+  script: bash deploy.sh production
   on:
     branch: master
 deploy:
   provider: script
   skip-cleanup: true
-  script: deploy.sh staging
+  script: bash deploy.sh staging
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH != "master"
