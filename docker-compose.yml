@@ -5,7 +5,17 @@ services:
     container_name: wedding-site-builder
     volumes:
       - ./:/src
+    user: hugo
     command: hugo
+  hugo-server:
+    image: jguyomard/hugo-builder
+    container_name: wedding-site-dev-server
+    volumes:
+      - ./:/src
+    ports:
+      - 1313:1313
+    user: hugo
+    command: hugo server -w -p 1313 --bind=0.0.0.0
   nginx-server:
     restart: always
     image: nginx:alpine
@@ -20,8 +30,6 @@ services:
       VIRTUAL_PORT: 80
       LETSENCRYPT_HOST: albertoandanna.com,www.albertoandanna.com
       LETSENCRYPT_EMAIL: albe.carde@gmail.com
-    depends_on:
-     - hugo-builder
 networks:
   default:
     external:
