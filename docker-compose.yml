@@ -5,7 +5,6 @@ services:
     container_name: wedding-site-builder
     volumes:
       - ./:/src
-    user: hugo
     command: hugo
     environment:
       HUGO_BASEURL: https://${DEPLOY_DOMAIN}/
