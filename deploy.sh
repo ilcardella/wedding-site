@@ -5,7 +5,7 @@ set -eu -o pipefail
 
 # For staging builds deploy in /tmp
 if [[ $1 == "staging" ]]; then
-    DEPLOY_DIRECTORY="/tmp"
+    DEPLOY_DIRECTORY="/tmp/"
 fi
 
 DEPLOY_SSH_PATH="${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIRECTORY}"
@@ -13,9 +13,9 @@ DEPLOY_SSH_PATH="${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIRECTORY}"
 # Deploy the content of the public folder
 rsync -r --quiet --delete-after ${TRAVIS_BUILD_DIR}/public/* ${DEPLOY_SSH_PATH}/public/
 # Deploy the docker-compose file
-rsync --quite --delete-after ${TRAVIS_BUILD_DIR}/docker-compose.yml ${DEPLOY_SSH_PATH}
+rsync --quiet --delete-after ${TRAVIS_BUILD_DIR}/docker-compose.yml ${DEPLOY_SSH_PATH}
 # Deploy the .env file created during the CI build
-rsync --quite --delete-after ${TRAVIS_BUILD_DIR}/.env ${DEPLOY_SSH_PATH}
+rsync --quiet --delete-after ${TRAVIS_BUILD_DIR}/.env ${DEPLOY_SSH_PATH}
 
 if [[ $1 == "production" ]]; then
 # Restart the server container
