@@ -1,27 +1,37 @@
 dist: xenial
 sudo: required
-
 language: node_js
 node_js:
-  - "lts/*"
-
+- lts/*
+before_script:
+  - touch ${TRAVIS_BUILD_DIR}/.env
+  - chmod 600 ${TRAVIS_BUILD_DIR}/.env
+  - echo "DEPLOY_DOMAIN=${DEPLOY_DOMAIN}" >> ${TRAVIS_BUILD_DIR}/.env
+  - echo "SSL_EMAIL=${SSL_EMAIL}" >> ${TRAVIS_BUILD_DIR}/.env
 services:
 - docker
-
 script:
 - docker network create nginx-proxy
 - docker-compose up --exit-code-from hugo-builder hugo-builder
-
 before_deploy:
-- openssl aes-256-cbc -K $encrypted_fa0b121693fc_key -iv $encrypted_fa0b121693fc_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- openssl aes-256-cbc -K $encrypted_fa0b121693fc_key -iv $encrypted_fa0b121693fc_iv
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
-- echo -e "Host ${DEPLOY_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
+#- echo -e "Host ${DEPLOY_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+addons:
+  ssh_known_hosts: "${DEPLOY_HOST}"
 deploy:
   provider: script
   skip-cleanup: true
-  script: rsync -r --quiet --delete-after ${TRAVIS_BUILD_DIR}/public/* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIRECTORY}
+  script: deploy.sh
   on:
     branch: master
+env:
+  global:
+  - secure: tMiQV33L/vx4NJSHltJK8LmyQ/WvQi/MR60slKruIhAo4pmmWVz5mVLy8Cjz4cbvbO6HfkgJVHS2X4wsoBa8+GgdA+XMl2gcFQJYFubV2mMTrxW6fdwiHZknUELdWwzikBiZAE2SeU3dF6WbL6KVKOmOanky6cd9EWiXmNdZzXGJDz3RH0hc5zE/4TxyrhhYE2ReEn2W9KG10ESOYpXX2oh0mcEW1IBdv/fzq0r7cI1YKoTrTxQuze2QMFSrhXNU04FmFRX0ZVUhtB/8Zs40Yb5CFDNFbikxVsg0sVPUpka2WewD7QGjuTAaKon2Ew9pGCdZyUltQB99S4ay0UwqC51y6wG86IMOqF23KkdIYRNrD5RwK6s9SCKERk6ZhissIo9R3I9nFWio1MtJ+8E+3S6aevzlMH/PgFuupIjElqVapX/FsooLdj5i//Suvw8wEdFSEJEWFCLQruio7NRRt1AFIkhWUI4aOoLyikx4kwIKCgmbiv7tn301nZaXvjJi7sxTlcJ1imCnrB1JcuDyzZpRkby3vj+A29KcyGY7q1dd+Gr49eRK3iCPVOqCVaYZf7IccH9qCXsLKCLO9UXo97KTPytCdFggMitcheWAq8U/e6n1bLXxsna2kWFnrOJYDwVdJWWNo2UA/zSAk3S/mTitRoSJogdmKB36m9XYQsE=
+  - secure: OJ0iGHQU7d7mJ4eUg5lJEO9rxo/VyaGRnAx6+vRp8SYD8kR1b7TqHVgI9/qAfcZiCUM/FN4ysDOa8sexFTv7z6Pa7v9KqzAip7WeyZuSpzv4QztDqN0QpL0reOY2osbFXCzhsjqdgFzpoPjJyd/gPZ69AWCbI3XCk4PogMBb7yZIBCSjhAaYOZYK3GPcVAtQZufVKy4HsH3VpWwxpOkk4URwer4NXMuFSewzps/Xegu+00Ya5/8bgDOyaEWxPkRALe/BBhdc6bDeU/tVNsj14/gbqtNjoz0UGSezgSHMR2JNrir1Jmn1/B95PDHh9KEHZlg13xwW+liT9q7SOTCExwjoTTnDCW9T8k6iKi/TWq5vU3Tsce7afW4GDJ8gZvEbaSbWwdnZJPi8CLZDLTgJUcMpCAWapKMJ3e03Bh+VYL2NZgbV3ZbrFQdmlnZZX81NTJxO3SqojBTKgBFbl6Gj3V2fH7TGq1rp7zLbC5fvcI0zuaRZXjZy75UZ57MVT63YmDNAYEV67nyn5vFBOP71xdgV/TgdB/kR7GsC8mvxZFXVOpJQ4+kO3+Ud66ROGw/YvSE0XKMlQfwmf3zfXhkSYHzuO5Bhh4SoQ3VjQkjHqpBA7r0gyxP5Ol4Q+fGN7iAXLzekomyhz5y7QfQUshzhu9YJSz12VgSGC7lqeUzqSwo=
+  - secure: qvj6kYj/EabS2tdVNCKnhIVsf7dBd8DJHnxu3q0TqnxjNnmLZ5C4G1NwbbncryI/tSicVS/n7wkvuFkSx2SwXRIOu+5z/28XJ7I05CqTr+jTGqrMnbuG6m8f2R/kJoGi7V7G/ndc2BZLQKVKwc3jHaxq46nRzJnZcpexJshOyVUrQ1jxPoOAd3xKr0oncRF0bvWUZ979bk5NBWvoKlIxylK+GiiUlxny2keXWl1m25OtNQ+63gkPEMH9RiTh7BnFPd70XQ80iQtDjzQGM9ImgGZUqN5GGtAgQGoWIOdwvxKDESZmS+F/UtlRDe8S2YztYbS4csnxslb/gMJdvShR1xqjeqSVjyRJOm1iWM+rThzw6/OOXxwOStnZS275zOAhTfhimcQRVy/Up9+SBSUllMHu7FGppmmB7R/0ODKbyJdF3Q+X3+2E+YzcASrA6nu/zB6v56pcfOBJc4yos5hI3CVbWGJseZt1HYR72w3zL6Z4AAU5HsQFU/RZ9rr1cIp63jXJ5A60fUZ4E1AtAO2kSYXXpFoWFd+9KZJBptWVVtrL7QIEE6cEVEAqQoN/IFAFz6td6pNk+jQU4qd95bUg1WIsOWXXFGH9a8KYmyMpS8QPk0r8LQHqfzu8mc7vkd6eQ0eJvA3ovJKrRG18bv6MWzPL2WmrBJbb6sPdXb9Peis=
+  - secure: mjP8JL3Bf7VqTEeTRRFd9PkU8lgEeOyQ9kidoiq5njayf41Zp7V2WbcATNzk6U0mns/MQMZevPXGokz+AVchAH8H0NEaUjGO+uUvSXHuhvaogG2x2PP0KAaaZKey0gSdM+9e3KgMuw3ZfhoEfVYzCBanCFkMhtbxzqFRjzGqBfyk79fz/Y1oYgp6rv8Yw7GkkaNt108CCwP2OfWBM5ZgK5sA9o5ttJouZ10eKMq3lFXpbkbpH6cKVsB9uRUeLfsN2vq3A5BPocgY4GRznoa+bQlG+SKywynsb9m4Ri8o1wGMgCmJHYSzpMwUdXT05rc53KvXKT+U300HyBR+sFg0o10Kcov+on622AsY9gKa6Y6sPf1c6L78dij7DMuNGDYkBE+orwmN+xHg3pEYoKf0k8id4nO98EczV4rKwlZwR3uhkaZHGMUQMr5YeC0hr8jxAiaqtSazl0jT2uGo2kbm/mF656z31B1fRsT9r0B8kIzb/+TLUab32c8h2S5GdJXK8dEyBzr15TYhpa3wDFm0eZhAfU/a35uEky3xnpqwHFEjmeiz3yFtsjh4Td4Mc/z0Mt8EsZ9LisCKG5QAB/IFKZpaqMoUnPvtWtapNFe6Ee0Asib9Y+4zKVJxYJxST12ty/95+08FgH7c4ngQXqclLuxofM1cCsbOj8Bjy0lYB9M=
+  - secure: JK/8ZkZEl6FFA0cdcBO4kF4yUKH/+CFmOCsEUtbGEE8mmvORR83ZDzIt0VgTTQl96g6VsHf7RMnR5w/A5xsoH6AdKT7VbLgxLIGP4dDreV6otYX9ZlCmUu8b2ZL37hvDRvYPtHWJjPlDq6GXDSbUWZunxmus4Phjs4IFxHwrVTN1KTlaOAHDkADODRvNudgGCMMA6r7JSlhwoo4/tCzrzsmrla2/h1AFNPtuxPSE8BcfFjofM0rjMCIA+nnKdDd7r8tPa5b2URX5mWg5hxbzRv6b67l7iwzOeFf5b9jjAfwRyJVc17MIFy3VMo2/w0X+MiZdtnqlVj07s42snKOaC6lhZ7w6GUYD4qe9kr3wDTHNQFtW4q828urlQTaAkxXgZ2QFX5qPjKFZ7UQHlTBW62QUJihPAAYP006DlmNKTzBnmzzQN6K2sC/5IF9a0/G9WFxh5glIwTB59lfORnkl+HOB8MzB7Z2yhMUYIUypczP5A12Q8Wt1Zg2qBASa4g+ogrS6Qn6ukpIdk6Rmitht/JMkxyyvMJ4CO9G3z9FIlNXbYS3mHaKZKrJj/zXrrIjmy4FLdcCgCYWHzTjWafr92I4y05UculWQX2EfqhxmfZBuzdwbhs5CGBb12b+/oh5HDPCwtdE+7JO0cUI5JA2AGwRvOVw7S/87tqoB9Hb+POs=
