@@ -17,8 +17,8 @@ rsync --quiet ${TRAVIS_BUILD_DIR}/docker-compose.yml ${DEPLOY_SSH_PATH}
 # Deploy the .env file created during the CI build
 rsync --quiet ${TRAVIS_BUILD_DIR}/.env ${DEPLOY_SSH_PATH}
 
+# Restart the nginx server only for production deployment
 if [[ $1 == "production" ]]; then
-# Restart the server container
 ssh ${DEPLOY_USER}@${DEPLOY_HOST} /bin/bash <<EOF
 cd ${DEPLOY_DIRECTORY}
 docker-compose down
