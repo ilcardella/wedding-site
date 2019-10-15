@@ -1,6 +1,7 @@
 # Site settings
 #baseurl = "SET BY AN ENV VARIABLE"
 languageCode = "en-us"
+DefaultContentLanguage = "en"
 title = "Alberto&Anna's wedding"
 theme = "hugo-highlights-theme"
 
@@ -100,8 +101,54 @@ googleAnalytics = ""
       enable = true
 
     # copyright
-
     [[params.footer.copyright.notice]]
       text = "© Alberto and Anna - 2020"
 
+# ----------------------------
+# Multi language translations
+# ----------------------------
+[languages]
+  [languages.en]
+    weight = 1
+    languageName = "English"
 
+  [languages.it]
+    weight = 2
+    languageName = "Italiano"
+    title = "Alberto e Anna sposi"
+
+    [languages.it.params]
+      [languages.it.params.hero]
+        title = "Alberto e Anna sposi"
+        buttontext = "info"
+        description = "TBD @ TBD"
+      [[languages.it.params.block]]
+        id = "about_us"
+        type = "text"
+        title = "Su di noi"
+        description = "Chi siamo, dove siamo e dove andiamo"
+        buttontext = "next"
+      [[languages.it.params.block]]
+        id = "ceremony"
+        type = "text-location"
+        title = "Cerimonia"
+        description = "Due righe a proposito della cerimonia"
+        location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+        buttontext = "next"
+      [[languages.it.params.block]]
+        id = "reception"
+        type = "text-location"
+        title = "Ricevimento"
+        description = "Due righe sul ricevimento"
+        location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+        buttontext = "next"
+      [[languages.it.params.block]]
+        id = "contact"
+        type = "contact"
+        title = "Resta in contatto"
+        description = "Se hai domande, mandaci una mail"
+        [languages.it.params.block.form]
+          name = "il tuo nome"
+          email = "la tua email"
+          message = "Scrivi qualcosa..."
+          buttontext = "Invia"
