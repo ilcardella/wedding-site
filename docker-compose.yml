@@ -1,15 +1,22 @@
 version: "3.7"
 services:
   hugo-builder:
-    image: jguyomard/hugo-builder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ilcardella/hugo-builder:latest
     container_name: wedding-site-builder
     volumes:
       - ./:/src
     command: hugo
     environment:
       HUGO_BASEURL: https://${DEPLOY_DOMAIN}/
+      HUGO_PARAMS_email: ${SSL_EMAIL}
   hugo-server:
-    image: jguyomard/hugo-builder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ilcardella/hugo-builder:latest
     container_name: wedding-site-dev-server
     volumes:
       - ./:/src
