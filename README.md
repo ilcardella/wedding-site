@@ -6,9 +6,9 @@ This repo contains my wedding website generated with Hugo and deployed on a priv
 server with TravisCI.
 
 The `docker-compose.yml` contains 3 services:
-- hugo-builder: generate the website html file in the `public` folder
-- hugo-server: serves the generated website using the hugo built-in server (for development purposes)
-- nginx-server: serves the generated website in the deployment environment
+- `hugo-builder`: generate the website html file in the `public` folder
+- `hugo-server`: serves the generated website using the hugo built-in server (for development purposes)
+- `nginx-server`: serves the generated website in the deployment environment
 
 ## Encrypted variables
 

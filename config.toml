@@ -44,7 +44,7 @@ googleAnalytics = ""
   [params.hero]
     type = "hero"
     title = "Alberto&Anna's wedding"
-    description = "TBD @ TBD"
+    description = "19/09/2020 @ Agriturismo Montegualdone"
     buttontext = "info"
 
   # about section
@@ -59,20 +59,19 @@ googleAnalytics = ""
   # ceremony section
   [[params.block]]
     id = "ceremony"
-    type = "text-location"
-    title = "Ceremony"
-    description = "A few lines about the ceremony and where it is"
-    location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+    type = "text"
+    title = "Ceremony & Reception"
+    description = "The Ceremony and the reception will be held at Agriturismo Montegualdone"
     buttontext = "next"
     #picture = "dancing.jpg"
 
-  # reception section
+  # directions section
   [[params.block]]
-    id = "reception"
+    id = "directions"
     type = "text-location"
-    title = "Reception"
-    description = "A few lines about the reception and where it is"
-    location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+    title = "Directions"
+    description = "Directions to get there..."
+    location = "Agriturismo Montegualdone, Sarezzano, Province of Alessandria, Italy"
     buttontext = "next"
     #picture = "dancing.jpg"
 
@@ -81,14 +80,14 @@ googleAnalytics = ""
     id = "contact"
     type = "contact"
     title = "Get in Touch"
-    description = "If you have questions just drop us an email"
+    description = "If you have questions just send us an email"
     #picture = "dancing.jpg"
 
     [params.block.form]
-      name = "Name"
+      name = "Your Name"
       email = "Your Email"
       message = "Your Message"
-      buttontext = "send message"
+      buttontext = "send"
 
   # footer section
   # this section includes last block and social icons
@@ -115,13 +114,13 @@ googleAnalytics = ""
   [languages.it]
     weight = 2
     languageName = "Italiano"
-    title = "Alberto e Anna sposi"
+    title = "Alberto & Anna"
 
     [languages.it.params]
       [languages.it.params.hero]
-        title = "Alberto e Anna sposi"
+        title = "Alberto & Anna"
         buttontext = "info"
-        description = "TBD @ TBD"
+        description = "19/09/2020 @ Agriturismo Montegualdone"
       [[languages.it.params.block]]
         id = "about_us"
         type = "text"
@@ -130,25 +129,24 @@ googleAnalytics = ""
         buttontext = "next"
       [[languages.it.params.block]]
         id = "ceremony"
-        type = "text-location"
-        title = "Cerimonia"
-        description = "Due righe a proposito della cerimonia"
-        location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+        type = "text"
+        title = "Cerimonia e festeggiamenti"
+        description = "La cerimonia ed la ricezione saranno tenuti all'Agriturimo Montegualdone..."
         buttontext = "next"
       [[languages.it.params.block]]
-        id = "reception"
+        id = "directions"
         type = "text-location"
-        title = "Ricevimento"
-        description = "Due righe sul ricevimento"
-        location = "Pall Tavern, 15 Silver St, Yeovil BA20 1HW"
+        title = "Come raggiungerci"
+        description = "Come raggiungere l'agriturismo..."
+        location = "Agriturismo Montegualdone, Sarezzano, Province of Alessandria, Italy"
         buttontext = "next"
       [[languages.it.params.block]]
         id = "contact"
         type = "contact"
-        title = "Resta in contatto"
-        description = "Se hai domande, mandaci una mail"
+        title = "Contatti"
+        description = "Per qualsiasi domanda mandaci una mail"
         [languages.it.params.block.form]
           name = "il tuo nome"
           email = "la tua email"
-          message = "Scrivi qualcosa..."
+          message = "il tuo messaggio"
           buttontext = "Invia"
