@@ -49,10 +49,10 @@ googleAnalytics = ""
 
   # about section
   [[params.block]]
-    id = "about_us"
+    id = "news"
     type = "text"
-    title = "About us"
-    description = "A few lines about us"
+    title = "News"
+    description = "We hope everyone is safe during this lockdown! We are currently monitoring the covid-19 pandemic and we will update you about any change in our plans"
     buttontext = "next"
     #picture = "dancing.jpg"
 
@@ -122,10 +122,10 @@ googleAnalytics = ""
         buttontext = "info"
         description = "19/09/2020 @ Agriturismo Montegualdone"
       [[languages.it.params.block]]
-        id = "about_us"
+        id = "news"
         type = "text"
-        title = "Su di noi"
-        description = "Chi siamo, dove siamo e dove andiamo"
+        title = "News"
+        description = "Speriamo siate tutti bene durante questo lockdown! Stiamo monitorand la situazione e vi aggiorneremo nel caso dovremo spostare la data della cerimonia"
         buttontext = "next"
       [[languages.it.params.block]]
         id = "ceremony"

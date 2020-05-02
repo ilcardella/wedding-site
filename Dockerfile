@@ -6,7 +6,7 @@ RUN apk add --no-cache \
     openssh-client \
     rsync
 
-ENV VERSION 0.65.2
+ENV VERSION 0.69.2
 RUN mkdir -p /usr/local/src \
     && cd /usr/local/src \
     # Download hugo binaries
