@@ -1,14 +1,9 @@
+<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/language_menu.css" />
 <menu id="lang-menu" class="nav-menu">
-    <a href="#" lang="{{ .Site.Language.Lang }}" class="link active">{{ .Site.Language.LanguageName }} ({{ .Site.Language.Lang }})</a>
-    {{ if .IsTranslated -}}
-      {{ range .Translations }}
-        <a href="{{ .Permalink }}" lang="{{ .Lang }}" class="link">{{ .Language.LanguageName }} ({{ .Site.Language.Lang }})</a>
-      {{ end }}
-    {{ else }}
-      {{ range .Site.Languages }}
-        {{ if not (eq .Lang $.Site.Language.Lang) }}
-          <a href="{{ relURL .Lang }}" lang="{{ .Lang }}" class="no-lang link">{{ .LanguageName }} ({{ .Lang }})</a>
-        {{ end }}
-      {{ end }}
+  <a href="#" lang="{{ .Site.Language.Lang }}" class="flag">{{ .Site.Language.LanguageName }}</a>
+  {{ range .Site.Languages }}
+    {{ if not (eq .Lang $.Site.Language.Lang) }}
+      <a href="{{ relURL .Lang }}" lang="{{ .Lang }}" class="flag">{{ .LanguageName }}</a>
     {{ end }}
+  {{ end }}
 </menu>

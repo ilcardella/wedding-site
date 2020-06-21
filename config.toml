@@ -109,11 +109,12 @@ googleAnalytics = ""
 [languages]
   [languages.en]
     weight = 1
-    languageName = "English"
+    languageName = "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+    #languageName = "🇬🇧"
 
   [languages.it]
     weight = 2
-    languageName = "Italiano"
+    languageName = "🇮🇹"
     title = "Alberto & Anna"
 
     [languages.it.params]
