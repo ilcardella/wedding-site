@@ -43,7 +43,7 @@ googleAnalytics = ""
   # hero Section
   [params.hero]
     type = "hero"
-    title = "Alberto&Anna's wedding"
+    title = "Alberto & Anna's wedding"
     description = "19/09/2020 @ Agriturismo Montegualdone"
     buttontext = "info"
 

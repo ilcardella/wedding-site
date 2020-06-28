@@ -1,0 +1,9 @@
+header h1 {
+    font-family: 'Indie Flower', cursive;
+}
+
+header p {
+    font-family: 'Indie Flower', cursive;
+    text-transform: unset;
+    font-size: x-large;
+}
