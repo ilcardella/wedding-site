@@ -51,15 +51,15 @@ googleAnalytics = ""
   [[params.block]]
     id = "news"
     type = "text"
-    title = "News"
-    description = "We are getting married on Saturday the 19th of September 2020!! Please send us a confirmation directly to us or by using the contact form below. Thank you!"
+    title = "Info"
+    description = "Anna Thomson and Alberto Cardellini are getting married on Saturday the 19th of September 2020!!\n\nKeep scrolling to find some useful information about this special day.\n\nPlease send a confirmation of your presence directly to us or by using the contact form below. Thank you!"
     buttontext = "next"
 
   [[params.block]]
     id = "ceremony"
     type = "text"
     title = "Ceremony & Reception"
-    description = "The Ceremony and the reception will be held at the Agriturismo Montegualdone, located in the little village of Sarezzano (AL), 15050, Italy. The ceremony will start at TBD, followed by a refreshing happy hour with drinks and local produce in the beautiful restaurant courtyard. Dinner will be served at TBD and the night will be closed with some authentic ceilidh dances!"
+    description = "The Ceremony and the reception will be held at the Agriturismo Montegualdone, located in the little village of Sarezzano (AL), 15050, Italy.\n\nThe ceremony will start at TBD, followed by a refreshing happy hour with drinks and local produce in the beautiful restaurant courtyard. Dinner will be served at TBD and the night will be closed with some authentic ceilidh dances!"
     buttontext = "next"
 
   [[params.block]]
@@ -72,15 +72,15 @@ googleAnalytics = ""
 
   [[params.block]]
     id = "directions"
-    type = "text"
+    type = "text-directions"
     title = "Directions"
-    description = "The closest international airport is Milan Malpensa (MXP). From the airport you can get to the wedding destination by car or with the train. If you choose the car, please follow the directions to Milan, then towards Genova and eventually Tortona. If you decide to travel by train, you can get it directly from the airport arriving in Milano Centrale. From there you will need to get on a second train that will stop in Tortona. For any doubts don't hesitate to ask, we are more than happy to give you advices on how to get there."
+    description = "The closest international airport is Milan Malpensa (MXP). From the airport you can get to the wedding destination by car or with the train:\n- If you choose the car, please follow the directions to Milan, then towards Genova and eventually Tortona.\n- If you decide to travel by train, you can get it directly from the airport arriving in Milano Centrale. From there you will need to get on a second train that will stop in Tortona.\n\nFor any doubts don't hesitate to ask, we are more than happy to give you advices on how to get there."
     buttontext = "next"
 
   [[params.block]]
     id = "stay"
     type = "text"
-    title = "Stays"
+    title = "Accomodation"
     description = "If you are looking for a place to stay, there are several options for you, some nearby the wedding location and others in Tortona, the closest town. These are only some of them:\n- [Casa Cuniolo](https://www.gabriellacuniolo.com/20/casa-cuniolo)\n- [Residence Perosi](https://www.gabriellacuniolo.com/19/residence-perosi)\n- [Villart AirBnB](https://www.airbnb.co.uk/rooms/36398491/?source_impression_id=p3_1591295150_n4cjS9q2nkDz2eMZ&guests=1&adults=1)\n\nAgriturismo Montegualdone has also a few rooms available directly at the location. Please get in touch for any question!"
     buttontext = "next"
 
@@ -150,9 +150,9 @@ googleAnalytics = ""
         buttontext = "next"
       [[languages.it.params.block]]
         id = "directions"
-        type = "text"
+        type = "text-directions"
         title = "Direzioni"
-        description = "L'aeroporto internazionale piu' vicino e' Milano Malpensa (MXP). Dall'aeroporto puoi raggiungere l'agriturismo con la macchina o con il treno. Se in macchina, segui le indicazioni per Milano, poi procedi seguendo Genova (autostrada A7) ed infine troverai l'uscita autostradale di Tortona. Se viaggerai con il treno, puoi prenderlo direttamente dall'aeroporto arrivando alla stazione di Milano Centrale. Da li dovrai prendere un secondo treno che fermera' alla stazione di Tortona. In caso di dubbi non esitare a contattarci, siamo piu' che felici di aiutarvi ad organizzare il tragitto."
+        description = "L'aeroporto internazionale piu' vicino e' Milano Malpensa (MXP). Dall'aeroporto puoi raggiungere l'agriturismo con la macchina o con il treno.\n- Se in macchina, segui le indicazioni per Milano, poi procedi seguendo Genova (autostrada A7) ed infine troverai l'uscita autostradale di Tortona.\n- Se viaggerai con il treno, puoi prenderlo direttamente dall'aeroporto arrivando alla stazione di Milano Centrale. Da li dovrai prendere un secondo treno che fermera' alla stazione di Tortona.\n\nIn caso di dubbi non esitare a contattarci, siamo piu' che felici di aiutarvi ad organizzare il tragitto."
         buttontext = "next"
       [[languages.it.params.block]]
         id = "stay"

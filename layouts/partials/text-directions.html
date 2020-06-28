@@ -10,8 +10,8 @@
       </header>
       <p>{{ with .block.description }}{{ . | markdownify }}{{ end }}</p>
       <iframe
-        src='https://www.google.com/maps/embed/v1/place?key={{ .params.googlemapsapikey }}&q={{ .block.location }}'
-        frameborder="0" scrolling='no' width='100%' height='300px'>
+        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d718974.0095579951!2d8.359166046580036!3d45.258059855140615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x478661757c84a7b7%3A0xa3f10a57a0c77efe!2sMalpensa%20Airport%2C%20Ferno%2C%20VA%2C%20Italy!3m2!1d45.6300625!2d8.7255307!4m5!1s0x478742121291b023%3A0x38baaca7314a6709!2sAgriturismo%20Montegualdone%2C%20Sarezzano%2C%20Province%20of%20Alessandria%2C%20Italy!3m2!1d44.862110699999995!2d8.9132769!5e0!3m2!1sen!2suk!4v1593348407714!5m2!1sen!2suk"
+        width="100%" height="300px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
       </iframe>
     </div>
     {{ if .next }}
