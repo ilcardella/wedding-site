@@ -51,8 +51,8 @@ googleAnalytics = ""
   [[params.block]]
     id = "news"
     type = "text"
-    title = "Info"
-    description = "Anna Thomson and Alberto Cardellini are getting married on Saturday the 19th of September 2020!!\n\nKeep scrolling to find some useful information about this special day.\n\nPlease send a confirmation of your presence directly to us or by using the contact form below. Thank you!"
+    title = "Update"
+    description = "Anna Thomson and Alberto Cardellini are getting married on Saturday the 19th of September 2020!!\n\nAfter much deliberation and evaluation of the current situation around covid-19 we feel confident about going ahead with the wedding as originally planned on the 19th of September 2020.\n\nWe understand that there might be concerns and we would ask anyone who is feeling this way to reach out directly. We are monitoring the situation both in Italy and in the UK where the risk is low and it keeps improving day by day.\n\nDespite that to alleviate further concerns we have decide to not include a ceilidh and we will do as much as we can to ensure that people will feel as confortable as possible.\n\nWe understand the uncertainty of making travel arrangements at the moment so we are working with the venue allowing us to extend giving confirmation of your presence until the end of August.\n\nWe hope this helps and we hope to see you in September!\n\nPlease send a confirmation of your presence directly to us or by using the contact form below. Thank you!"
     buttontext = "next"
 
   [[params.block]]
@@ -133,13 +133,13 @@ googleAnalytics = ""
         id = "news"
         type = "text"
         title = "News"
-        description = "Ci sposeremo il 19 Settembre 2020! Per favore confermaci la tua presenza contattandoci direttamente o attraverso il modulo in fondo a questa pagina. Grazie e a presto!"
+        description = "Ci sposeremo il 19 Settembre 2020!\n\nDopo un'attenta valutazione della situazione covid-19 abbiamo deciso di continuare come pianificato e di non cambiare i piani per il matrimonio il 19 Settembre 2020.\n\nCapiamo che ci possano essere delle preoccupazioni e chiediamo cortesemente a tutti di contattarci direttamente per parlarne. Stiamo monitorando la situazione costantemente sia in Italia che in UK dove il rischio e' diventato basso e migliora di giorno in giorno.\n\nNonostante questo, per alleviare ogni preoccupazione abbiamo deciso di prendere delle precauzioni come il cancellare le ceilidh (le danze scozzesi).\n\nSiamo al corrente dell'incertezza di pianificare un viaggio internazionale e siamo in contatto con l'agriturismo permettendoci di dare una conferma definitiva della tua presenza fino alla fine di Agosto.\n\nSperiamo questo possa aiutarvi e speriamo di vedervi a Settembre!\n\nPer favore confermaci la tua presenza contattandoci direttamente o attraverso il modulo in fondo a questa pagina. Grazie!"
         buttontext = "next"
       [[languages.it.params.block]]
         id = "ceremony"
         type = "text"
         title = "Cerimonia e ricevimento"
-        description = "La cerimonia e la ricezione saranno tenuti all'Agriturimo Montegualdone, situato appena fuori il villaggio di Sarezzano (AL), 15050. La cerimonia iniziera' alle TBD, seguita da un aperitivo a buffet nel panoramico cortile dell'agriturismo. La cena verra' servita alle TBD e la serata sara' chiusa con autentiche danze scozzesi, le ceilidh!"
+        description = "La cerimonia e la ricezione saranno tenuti all'Agriturimo Montegualdone, situato appena fuori il villaggio di Sarezzano (AL), 15050. La cerimonia iniziera' alle TBD, seguita da un aperitivo a buffet nel panoramico cortile dell'agriturismo. La cena verra' servita alle TBD seguita dal taglio della torta."
         buttontext = "next"
       [[languages.it.params.block]]
         id = "location"
