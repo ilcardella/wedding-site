@@ -84,6 +84,13 @@ googleAnalytics = ""
     description = "If you are looking for a place to stay, there are several options for you, some nearby the wedding location and others in Tortona, the closest town. These are only some of them:\n- [Casa Cuniolo](https://www.gabriellacuniolo.com/20/casa-cuniolo)\n- [Residence Perosi](https://www.gabriellacuniolo.com/19/residence-perosi)\n- [Villart AirBnB](https://www.airbnb.co.uk/rooms/36398491/?source_impression_id=p3_1591295150_n4cjS9q2nkDz2eMZ&guests=1&adults=1)\n\nAgriturismo Montegualdone has also a few rooms available directly at the location. Please get in touch for any question!"
     buttontext = "next"
 
+  [[params.block]]
+    id = "gifts"
+    type = "text"
+    title = "Gifts"
+    description = "You presence at our special day will be the best possible gift we can receive.\n\nIf you still want to show your love in a special way we have created a wedding list accessible at the following link:\n\n[Wedding List](http://www.weddingshop.com/Buy/View/77868)"
+    buttontext = "next"
+
   # contact form
   [[params.block]]
     id = "contact"
@@ -159,6 +166,12 @@ googleAnalytics = ""
         type = "text"
         title = "Alloggio"
         description = "Se stai cercando un posto per la notte, ci sono diverse opzioni, alcune vicino la location del matrimonio ed altre in Tortona, la citta' piu' vicina. Queste sono solo alcune di queste:\n- [Casa Cuniolo](https://www.gabriellacuniolo.com/20/casa-cuniolo)\n- [Residence Perosi](https://www.gabriellacuniolo.com/19/residence-perosi)\n- [Villart AirBnB](https://www.airbnb.co.uk/rooms/36398491/?source_impression_id=p3_1591295150_n4cjS9q2nkDz2eMZ&guests=1&adults=1)\n\nL'Agriturismo Montegualdone ha anche alcune stanze disponibili presso in loco. Facci sapere se possiamo aiutarti a trovare una sistemazione!"
+        buttontext = "next"
+      [[languages.it.params.block]]
+        id = "gifts"
+        type = "text"
+        title = "Regali"
+        description = "La tua presenza a condividere questo giorno speciale con noi sara' il miglior regalo possibile.\n\nSe nonostante cio' vorreste comunque partecipare con un regalo, abbiamo creato una lista nozze accessibile al seguente link:\n\n[Lista nozze](http://www.weddingshop.com/Buy/View/77868)"
         buttontext = "next"
       [[languages.it.params.block]]
         id = "contact"
