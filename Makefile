@@ -5,10 +5,13 @@ endif
 
 default: build
 
-build: network
-> docker-compose up --build --exit-code-from hugo-builder hugo-builder
+docker:
+> docker-compose build hugo-builder
 
-test-server:
+build: docker network
+> docker-compose up --no-build --exit-code-from hugo-builder hugo-builder
+
+test-server: docker network
 > docker-compose up hugo-server
 
 deploy:
@@ -20,4 +23,4 @@ deploy-staging:
 network:
 > docker network create nginx-proxy || true
 
-.PHONY: default build test-server deploy deploy-staging network
+.PHONY: default build test-server deploy deploy-staging network docker

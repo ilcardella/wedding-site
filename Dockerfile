@@ -1,4 +1,5 @@
 FROM alpine:latest
+
 # from https://hub.docker.com/r/jguyomard/hugo-builder
 RUN apk add --no-cache \
     curl \
@@ -14,11 +15,4 @@ RUN mkdir -p /usr/local/src \
     && mv hugo /usr/local/bin/hugo \
     # Install minify
     && curl -L https://bin.equinox.io/c/dhgbqpS8Bvy/minify-stable-linux-amd64.tgz | tar -xz \
-    && mv minify /usr/local/bin/ \
-    # Add user hugo
-    && addgroup -Sg 1000 hugo \
-    && adduser -SG hugo -u 1000 -h /src hugo
-
-WORKDIR /src
-
-EXPOSE 1313
+    && mv minify /usr/local/bin/

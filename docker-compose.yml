@@ -7,22 +7,22 @@ services:
     image: ilcardella/hugo-builder:latest
     container_name: wedding-site-builder
     volumes:
-      - ./:/src
+      - ./:/workspace
+    working_dir: /workspace
+    user: "${UID}:${GID}"
     command: hugo
     environment:
       HUGO_BASEURL: https://${DEPLOY_DOMAIN}/
       HUGO_PARAMS_email: ${SSL_EMAIL}
   hugo-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: ilcardella/hugo-builder:latest
     container_name: wedding-site-dev-server
     volumes:
-      - ./:/src
+      - ./:/workspace
+    working_dir: /workspace
     ports:
       - 1313:1313
-    user: hugo
+    user: "${UID}:${GID}"
     command: hugo server -w -p 1313 --bind=0.0.0.0
   nginx-server:
     restart: always
