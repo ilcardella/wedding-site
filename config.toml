@@ -59,7 +59,7 @@ googleAnalytics = ""
     id = "ceremony"
     type = "text"
     title = "Ceremony & Reception"
-    description = "The Ceremony and the reception will be held at the Agriturismo Montegualdone, located in the little village of Sarezzano (AL), 15050, Italy.\n\nThe ceremony will start at TBD, followed by a refreshing happy hour with drinks and local produce in the beautiful restaurant courtyard. Dinner will be served at TBD and the night will be closed with some authentic ceilidh dances!"
+    description = "The Ceremony and the reception will be held at the Agriturismo Montegualdone, located in the little village of Sarezzano (AL), 15050, Italy.\n\nThe ceremony will start at 17:30 circa, followed by a refreshing happy hour with drinks and local produce in the beautiful restaurant courtyard and its stunning view of the surrounding landscape. Dinner will be served after and the night will be closed with music and drinks!"
     buttontext = "next"
 
   [[params.block]]
@@ -146,7 +146,7 @@ googleAnalytics = ""
         id = "ceremony"
         type = "text"
         title = "Cerimonia e ricevimento"
-        description = "La cerimonia e la ricezione saranno tenuti all'Agriturimo Montegualdone, situato appena fuori il villaggio di Sarezzano (AL), 15050. La cerimonia iniziera' alle TBD, seguita da un aperitivo a buffet nel panoramico cortile dell'agriturismo. La cena verra' servita alle TBD seguita dal taglio della torta."
+        description = "La cerimonia e la ricezione saranno tenuti all'Agriturimo Montegualdone, situato appena fuori il villaggio di Sarezzano (AL), 15050.\n\nLa cerimonia iniziera' alle 17:30 circa, seguita da un aperitivo a buffet nel panoramico cortile dell'agriturismo. La cena verra' servita in seguito seguita dal taglio della torta."
         buttontext = "next"
       [[languages.it.params.block]]
         id = "location"
