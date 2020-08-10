@@ -88,7 +88,7 @@ googleAnalytics = ""
     id = "gifts"
     type = "text"
     title = "Gifts"
-    description = "You presence at our special day will be the best possible gift we can receive.\n\nIf you still want to show your love in a special way we have created a wedding list accessible at the following link:\n\n[Wedding List](http://www.weddingshop.com/Buy/View/77868)"
+    description = "You presence at our special day will be the best possible gift we can receive.\n\nIf you still want to show your love in a special way we have created a wedding list accessible at the following link:\n\n[Wedding List](http://www.weddingshop.com/Buy/View/77868)\n\nWe have also set up a fund for our honeymoon at the following account.\n\n**Eur (€)**\n\n- IBAN: GB20 REVO 0099 7013 9105 83\n\n- BIC: REVOGB21\n\n- Beneficiary: Alberto Cardellini\n\n**GBP (£)**\n\n- Sort code: 04-00-04\n\n- Account: 69869371\n\n- Beneficiary: Alberto Cardellini\n\nThank you!"
     buttontext = "next"
 
   # contact form
@@ -171,7 +171,7 @@ googleAnalytics = ""
         id = "gifts"
         type = "text"
         title = "Regali"
-        description = "La tua presenza a condividere questo giorno speciale con noi sara' il miglior regalo possibile.\n\nSe nonostante cio' vorreste comunque partecipare con un regalo, abbiamo creato una lista nozze accessibile al seguente link:\n\n[Lista nozze](http://www.weddingshop.com/Buy/View/77868)"
+        description = "La tua presenza a condividere questo giorno speciale con noi sara' il miglior regalo possibile.\n\nSe nonostante cio' vorreste comunque partecipare con un regalo, abbiamo creato una lista nozze accessibile al seguente link:\n\n[Lista nozze](http://www.weddingshop.com/Buy/View/77868)\n\nAbbiamo anche creato un fondo per contribuire alla nostra luna di miele:\n\n**Eur (€)**\n\n- IBAN: GB20 REVO 0099 7013 9105 83\n\n- BIC: REVOGB21\n\n- Beneficiario: Alberto Cardellini\n\n**GBP (£)**\n\n- Sort code: 04-00-04\n\n- Account: 69869371\n\n- Beneficiario: Alberto Cardellini\n\nGrazie!"
         buttontext = "next"
       [[languages.it.params.block]]
         id = "contact"
